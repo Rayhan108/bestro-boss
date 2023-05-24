@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import logo from '../../../assets/logo.png'
 
 const Navbar = () => {
     const navItems = <>
@@ -9,7 +9,7 @@ const Navbar = () => {
     
 </>
     return (
-        <div className="navbar bg-base-100 ">
+        <div className="navbar bg-base-100 fixed z-10 max-w-7xl bg-opacity-10  text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -19,7 +19,10 @@ const Navbar = () => {
            {navItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Bistro Boss</a>
+    <div className="">
+    <img style={{width:"50px",margin:"0px 0px 0px 15px "}} src={logo} alt="" />
+          <Link className=" normal-case text-xl mt-0">Bistro Boss</Link>
+    </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
