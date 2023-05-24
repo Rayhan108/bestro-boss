@@ -19,7 +19,7 @@ const Navbar = () => {
            {navItems}
             </ul>
           </div>
-    <div className="">
+    <div >
     <img style={{width:"50px",margin:"0px 0px 0px 15px "}} src={logo} alt="" />
           <Link className=" normal-case text-xl mt-0">Bistro Boss</Link>
     </div>
