@@ -1,18 +1,11 @@
 
-import { useEffect, useState } from "react";
 import ChefCard from "./ChefCard";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
+import useMenu from "../../../hooks/useMenu";
 
 const ChefRecomends = () => {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        fetch('menu.json')
-            .then(res => res.json())
-            .then(data => {
-                
-                setData(data)
-            })
-    }, [])
+    const [data] = useMenu();
+
     return (
         <div>
             <SectionTitle subHeader={"should try"} header="CHEF RECOMMENDS"></SectionTitle>
