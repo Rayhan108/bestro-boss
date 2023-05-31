@@ -12,7 +12,7 @@ const Footer = () => {
     <p>Sat - Sun: 10:00 - 23:00</p>
 </div>
   </div> 
-  <div>
+  <div >
     <span className="footer-title">Follow US</span> 
         <p className=''>Join us on social media</p>
     <div className="grid grid-flow-col  gap-4">
