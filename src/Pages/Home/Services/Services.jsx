@@ -58,28 +58,7 @@ const Services = () => {
         
         </div>
       </Swiper>
-      {/* <div className="hero  mb-20 md:h-[570px] md:w-[1280px]"  style={{ backgroundImage: `url("https://i.ibb.co/qdJH6Kx/chef-service.jpg")` }}>
-  <div className="hero-overlay bg-opacity-60"></div>
-  <div className="hero-content text-center text-neutral-content">
-    <div className="max-w-md">
-      <div>
-                <h3 className="text-center font-extrabold text-3xl">
-                  Bistro Boss
-                </h3>
-                <p className=" font-semibold">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam dictum mattis velit, sit amet faucibus felis iaculis
-                  nec. Nulla laoreet justo vitae porttitor porttitor.
-                  Suspendisse in sem justo. Integer laoreet magna nec elit
-                  suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at
-                  elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula
-                  nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean
-                  feugiat non eros quis feugiat.
-                </p>
-              </div>
-    </div>
-  </div>
-</div> */}
+
     </>
   );
 };
