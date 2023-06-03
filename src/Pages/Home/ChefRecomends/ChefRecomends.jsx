@@ -12,6 +12,7 @@ const ChefRecomends = () => {
           {
                 data.slice(0,3).map(d=><FoodCard  key={d._id} d={d}></FoodCard>)
             }
+            
           </div>
         </div>
     );
