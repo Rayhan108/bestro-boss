@@ -12,7 +12,7 @@ const ChefCard = ({d}) => {
           <h2 className="card-title text-center block">{name}</h2>
           <p>{recipe}</p>
           <div className="mt-5 text-center">
-         <button className="btn btn-outline border-0 border-b-4 mt-4">ADD TO CART</button>
+         <button className="btn btn-outline border-0 border-b-4 border-orange-500 mt-4">ADD TO CART</button>
          </div>
         </div>
       </div>
