@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import Cover from "../../Shared/Cover/Cover";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
+
 
 const MenuCatagory = ({item,title,img}) => {
     return (
@@ -14,6 +16,11 @@ const MenuCatagory = ({item,title,img}) => {
         }
       
     </div>
+ <div className="text-center">
+ <Link to={`/order/${title}`}>
+    <button className="btn btn-outline border-0 border-b-4 mt-4">Order Now</button>
+    </Link>
+ </div>
   </div>
     );
 };
