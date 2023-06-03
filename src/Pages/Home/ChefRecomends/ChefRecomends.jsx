@@ -1,8 +1,7 @@
 
-import ChefCard from "./ChefCard";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import useMenu from "../../../hooks/useMenu";
-
+import FoodCard from '../../../component/FoodCart/FoodCard';
 const ChefRecomends = () => {
     const [data] = useMenu();
 
@@ -11,7 +10,7 @@ const ChefRecomends = () => {
             <SectionTitle subHeader={"should try"} header="CHEF RECOMMENDS"></SectionTitle>
           <div className="grid md:grid-cols-3  mb-10">
           {
-                data.slice(0,3).map(d=><ChefCard key={d._id} d={d}></ChefCard>)
+                data.slice(0,3).map(d=><FoodCard  key={d._id} d={d}></FoodCard>)
             }
           </div>
         </div>

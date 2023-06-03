@@ -12,6 +12,7 @@ const MenuCatagory = ({item,title,img}) => {
                 item={item}
             ></MenuItem>)
         }
+      
     </div>
   </div>
     );
