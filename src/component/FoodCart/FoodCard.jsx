@@ -1,9 +1,49 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ChefCard = ({d}) => {
-   
-    console.log(d);
+   const {user}=useContext(AuthContext)
+   const navigate=useNavigate()
+    // console.log(d);
     const {image,name,recipe,price} = d;
-    
+    const handleAddToCart=item=>{
+      console.log(item);
+      if(user){
+        fetch('http://localhost:5000/carts',{
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(item),
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.insertedId){
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Item Added',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        })
+      }else{
+        Swal.fire({
+          title: 'You have to login for order food',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Login Now!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+          navigate('/Login')
+          }
+        })
+      }
+    }
     return (
         <div className="card w-96 bg-base-100 shadow-xl text">
         <figure><img src={image} alt="Shoes" /></figure>
@@ -12,7 +52,7 @@ const ChefCard = ({d}) => {
           <h2 className="card-title text-center block">{name}</h2>
           <p>{recipe}</p>
           <div className="mt-5 text-center">
-         <button className="btn btn-outline border-0 border-b-4 border-orange-500 mt-4">ADD TO CART</button>
+         <button onClick={()=>handleAddToCart(d)} className="btn btn-outline border-0 border-b-4 border-orange-500 mt-4">ADD TO CART</button>
          </div>
         </div>
       </div>
