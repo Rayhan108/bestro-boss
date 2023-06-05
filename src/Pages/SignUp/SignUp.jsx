@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { createUser, updateUser } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     reset,
-    watch,
+    
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -52,7 +53,7 @@ const SignUp = () => {
         });
     });
   };
-  console.log(watch("example"));
+
   return (
     <>
       <Helmet>
@@ -151,6 +152,7 @@ const SignUp = () => {
                   <span className="text-amber-700"> Login</span>
                 </Link>
               </p>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>
