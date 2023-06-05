@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCart from "../../hooks/useCart";
+
 
 const ChefCard = ({d}) => {
    const {user}=useContext(AuthContext)
+const [,refetch] =useCart()
    const navigate=useNavigate()
    const location= useLocation()
     // console.log(d);
@@ -21,6 +24,7 @@ const cartItem ={menuItemId:_id,name,image,price,email:user.email}
         .then(res=>res.json())
         .then(data=>{
           if(data.insertedId){
+            refetch() //refetch cart when update the the number of item in cart 
             Swal.fire({
               position: 'top-end',
               icon: 'success',
