@@ -7,6 +7,8 @@ import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 import Secret from "../../Pages/Shared/Secret/Secret";
+import Dashboard from "../../layout/Dashboard";
+import MyCart from "../../Pages/DashBoard/MyCart/MyCart";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +39,17 @@ export const router = createBrowserRouter([
         path: "/secret",
         element: <PrivetRoutes><Secret></Secret></PrivetRoutes>,
       },
+  
     ],
+    
   },
+{  path:"dashboard",
+  element:<Dashboard></Dashboard>,
+  children:[
+    {
+      path:'myCart',
+      element:<MyCart></MyCart>
+    }
+  ]
+}
 ]);
