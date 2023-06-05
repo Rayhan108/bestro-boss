@@ -30,7 +30,7 @@ const AllUsers = () => {
         }
       });
   };
-  const handleDelete = (user) => {};
+  const handleDelete = () => {};
   return (
     <div className=" text-center">
       <Helmet>
