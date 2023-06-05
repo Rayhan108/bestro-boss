@@ -19,19 +19,21 @@ const Login = () => {
     const password = form.password.value;
     console.log(email,password);
     signIn(email,password)
-    Swal.fire({
-      title: 'User Logged in successfull',
-      showClass: {
-        popup: 'animate__animated animate__fadeInDown'
-      },
-      hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
-    navigate(from,{replace:true})
+   
+   
     .then(result=>{
         const user=result.user;
         console.log(user);
+        Swal.fire({
+          title: 'User Logged in successfull',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
+        navigate(from,{replace:true})
     })
   };
   useEffect(()=>{

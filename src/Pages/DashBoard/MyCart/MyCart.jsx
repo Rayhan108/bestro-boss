@@ -38,7 +38,7 @@ const MyCart = () => {
     }
 
     return (
-        <div>
+        <div className="w-full">
                <Helmet>
         <title>Bestro Boss| MyCart</title>
         
@@ -48,8 +48,8 @@ const MyCart = () => {
             <h2>Total: ${total}</h2>
             <button className="btn btn-warning btn-sm">Pay</button>
           </div>
-          <div className="overflow-x-auto">
-  <table className="table">
+          <div className="overflow-x-auto w-full">
+  <table className="table w-full">
     {/* head */}
     <thead>
       <tr>

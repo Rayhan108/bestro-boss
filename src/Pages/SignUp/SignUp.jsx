@@ -6,8 +6,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const {createUser,updateUser}=useContext(AuthContext)
-    const navigate=useNavigate();
+  const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,27 +17,40 @@ const SignUp = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    createUser(data.email,data.password)
-    .then(result=>{
-        const loggedUser=result.user;
-        console.log(loggedUser);
-        console.log(data.photoURL);
-        updateUser(data.name,data.photoURL)
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      console.log(data.photoURL);
+      updateUser(data.name, data.photoURL)
         .then(() => {
-         console.log('Profile info updated');
-         reset()
-         Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Profile Create Sucessfull',
-          showConfirmButton: false,
-          timer: 1500
+          console.log("Profile info updated");
+          const saveUser = { name: data.name, email: data.email }
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Profile Create Sucessfull",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
         })
-        navigate('/')
-        }).catch((error) => {
-        console.log(error);
+        .catch((error) => {
+          console.log(error);
         });
-    })
+    });
   };
   console.log(watch("example"));
   return (
@@ -78,10 +91,9 @@ const SignUp = () => {
                   type="text"
                   placeholder="Photo url"
                   {...register("photoURL")}
-                  
                   className="input input-bordered"
                 />
-                  {errors.photoURL && (
+                {errors.photoURL && (
                   <span className="text-red-600">Photo URL is required</span>
                 )}
               </div>
