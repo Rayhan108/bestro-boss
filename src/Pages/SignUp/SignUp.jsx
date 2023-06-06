@@ -21,7 +21,7 @@ const SignUp = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      console.log(data.photoURL);
+      // console.log(data.photoURL);
       updateUser(data.name, data.photoURL)
         .then(() => {
           console.log("Profile info updated");
@@ -48,8 +48,8 @@ const SignUp = () => {
               }
             });
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          // console.log(error);
         });
     });
   };

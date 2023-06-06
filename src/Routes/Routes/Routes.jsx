@@ -5,11 +5,14 @@ import Menu from "../../Pages/Menu/Menu/Menu";
 import Order from "../../Pages/Order/Order/Order";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
-import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
-import Secret from "../../Pages/Shared/Secret/Secret";
+import PrivetRoutes from "../PrivetRoutes/PrivetRoutes"
+
 import Dashboard from "../../layout/Dashboard";
 import MyCart from "../../Pages/DashBoard/MyCart/MyCart";
 import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
+import AddItem from "../../Pages/DashBoard/AddItem/AddItem";
+import AdminRoutes from "../PrivetRoutes/AdminRoutes";
+import ManageItem from "../../Pages/DashBoard/ManageItem/ManageItem";
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +41,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/secret",
-        element: <PrivetRoutes><Secret></Secret></PrivetRoutes>,
+        element: <PrivetRoutes></PrivetRoutes>,
       },
   
     ],
@@ -55,6 +58,14 @@ export const router = createBrowserRouter([
       path:'allUsers',
       element:<AllUsers></AllUsers>
     },
+    {
+      path:'addItem',
+      element:<AdminRoutes><AddItem></AddItem></AdminRoutes>
+    },
+    {
+      path:'manageItem',
+      element:<AdminRoutes><ManageItem></ManageItem></AdminRoutes>
+    }
   ]
 }
 ]);
